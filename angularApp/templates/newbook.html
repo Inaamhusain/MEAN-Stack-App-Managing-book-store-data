@@ -1,0 +1,25 @@
+<h2>Add new book</h2><hr>
+<div class="row">
+	<div class="col-md-6">
+		<div class="well well-sm">
+			<form ng-controller="add-new-book">
+				<div class="form-group">
+					<label for="exampleInputEmail1">Book Name</label>
+					<input type="text" class="form-control" ng-model="bookdata.bookname" placeholder="Enter Book Name" required>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Author Name</label>
+					<input type="text" class="form-control" ng-model="bookdata.authorname" placeholder="Enter Author Name" required>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Price</label>
+					<div class="input-group">
+					<div class="input-group-addon">$</div>
+					<input type="text" class="form-control" ng-model="bookdata.price" placeholder="Amount" required>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-success" ng-click="addBook()">Add Book</button>
+			</form>
+		</div>
+	</div>
+</div>

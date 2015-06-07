@@ -1,0 +1,32 @@
+<div ng-controller="book-list">
+	<h2>List of books <span style="font-size: 16px;"><input type="text" ng-model="searchBook" placeholder="Search for Books by Author or Name" style="height: 40px; margin: 0px 31px; padding: 0px 15px;width: 300px;"></span></h2><hr>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="well well-sm">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+						<tr>
+							<th>Book Name</th>
+							<th>Book Author</th>
+							<th>Price</th>
+							<th>Edit</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr dir-paginate="item in booklist | searchFor:searchBook | itemsPerPage: pageSize" current-page="currentPage">
+							<td>{{item.bookname}}</td>
+							<td>{{item.authorname}}</td>
+							<td>${{item.price|number:2}}</td>
+							<td><button type="button" class="btn btn-primary" ng-click="editBook($index)">Edit</button></td>
+							<td><button type="button" class="btn btn-danger" ng-click="deleteBook($index)">Delete</button></td>
+						</tr>
+					</tbody>
+					</table>
+					<dir-pagination-controls boundary-links="true"  template-url="templates/dirPagination.html"></dir-pagination-controls>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
